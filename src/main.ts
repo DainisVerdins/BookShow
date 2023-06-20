@@ -1,3 +1,4 @@
+
 import './assets/main.css';
 
 import { createApp } from 'vue';
@@ -8,8 +9,11 @@ import BootstrapVueNext from 'bootstrap-vue-next';
 
 // Styles
 //Bootstrap vue;
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
+//import 'bootstrap/dist/css/bootstrap.css'
+//import 'bootstrap-vue-next/dist/bootstrap-vue-next.css';
+
+// redifine bootstrap 
+import '@src/styles/custom/_main.scss';
 
 const app = createApp(App);
 
