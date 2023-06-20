@@ -1,0 +1,191 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "description": "A novel about the moral nature of human beings.",
+      "image": "https://images.pexels.com/photos/356079/pexels-photo-356079.jpeg",
+      "rating": 4.3,
+      "publisher": "J. B. Lippincott & Co.",
+      "isbn": "9780446310789",
+      "price": "29.99€"
+    },
+    {
+      "id": 2,
+      "title": "1984",
+      "author": "George Orwell",
+      "description": "A dystopian novel about a future totalitarian state.",
+      "image": "https://images.pexels.com/photos/270348/pexels-photo-270348.jpeg",
+      "rating": 4.1,
+      "publisher": "Secker & Warburg",
+      "isbn": "9780451524935",
+      "price": "39.99€"
+    },
+    {
+      "id": 3,
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "description": "A romantic novel of manners.",
+      "image": "https://images.pexels.com/photos/267586/pexels-photo-267586.jpeg",
+      "rating": 4.6,
+      "publisher": "T. Egerton, Whitehall",
+      "isbn": "9780486284736",
+      "price": "19.99€"
+    },
+    {
+      "id": 4,
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "description": "A novel about the American dream.",
+      "image": "https://images.pexels.com/photos/256450/pexels-photo-256450.jpeg",
+      "rating": 3.9,
+      "publisher": "Charles Scribner's Sons",
+      "isbn": "9780743273565",
+      "price": "24.99€"
+    },
+    {
+      "id": 5,
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "description": "An epic sea story of Captain Ahab's voyage in pursuit of Moby Dick.",
+      "image": "https://images.pexels.com/photos/267371/pexels-photo-267371.jpeg",
+      "rating": 3.5,
+      "publisher": "Harper & Brothers",
+      "isbn": "9781503280786",
+      "price": "34.99€"
+    },
+    {
+      "id": 6,
+      "title": "War and Peace",
+      "author": "Leo Tolstoy",
+      "description": "A historical novel about the French invasion of Russia.",
+      "image": "https://images.pexels.com/photos/267394/pexels-photo-267394.jpeg",
+      "rating": 4.1,
+      "publisher": "The Russian Messenger",
+      "isbn": "9781400079988",
+      "price": "49.99€"
+    },
+    {
+      "id": 7,
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "description": "A novel about adolescent alienation and loss of innocence.",
+      "image": "https://images.pexels.com/photos/356080/pexels-photo-356080.jpeg",
+      "rating": 3.8,
+      "publisher": "Little, Brown and Company",
+      "isbn": "9780316769488",
+      "price": "29.99€"
+    },
+    {
+      "id": 8,
+      "title": "Ulysses",
+      "author": "James Joyce",
+      "description": "A complex modernist novel set in Dublin, Ireland.",
+      "image": "https://images.pexels.com/photos/356082/pexels-photo-356082.jpeg",
+      "rating": 3.7,
+      "publisher": "Sylvia Beach",
+      "isbn": "9781840226355",
+      "price": "39.99€"
+    },
+    {
+      "id": 9,
+      "title": "The Odyssey",
+      "author": "Homer",
+      "description": "An epic poem about the journey of Odysseus, king of Ithaca, after the Trojan War.",
+      "image": "https://images.pexels.com/photos/356086/pexels-photo-356086.jpeg",
+      "rating": 3.9,
+      "publisher": "In the Public Domain",
+      "isbn": "9780140268867",
+      "price": "24.99€"
+    },
+    {
+      "id": 10,
+      "title": "In Search of Lost Time",
+      "author": "Marcel Proust",
+      "description": "A novel in seven volumes about involuntary memory.",
+      "image": "https://images.pexels.com/photos/356092/pexels-photo-356092.jpeg",
+      "rating": 4.3,
+      "publisher": "Grasset and Gallimard",
+      "isbn": "9780142437964",
+      "price": "59.99€"
+    },
+    {
+      "id": 11,
+      "title": "A Tale of Two Cities",
+      "author": "Charles Dickens",
+      "description": "Set in London and Paris before and during the French Revolution.",
+      "image": "https://images.pexels.com/photos/345123/pexels-photo-345123.jpeg",
+      "rating": 3.8,
+      "publisher": "Chapman & Hall",
+      "isbn": "9781853260391",
+      "price": "34.99€"
+    },
+    {
+      "id": 12,
+      "title": "Les Misérables",
+      "author": "Victor Hugo",
+      "description": "A historical novel that covers a period of 17 years in the early 19th century France.",
+      "image": "https://images.pexels.com/photos/264635/pexels-photo-264635.jpeg",
+      "rating": 4.2,
+      "publisher": "A. Lacroix, Verboeckhoven & Ce",
+      "isbn": "9780451419439",
+      "price": "39.99€"
+    },
+    {
+      "id": 13,
+      "title": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+      "description": "The final novel by the Russian author, it explores ethics, free will, and morality.",
+      "image": "https://images.pexels.com/photos/264643/pexels-photo-264643.jpeg",
+      "rating": 4.3,
+      "publisher": "The Russian Messenger",
+      "isbn": "9780486437910",
+      "price": "44.99€"
+    },
+    {
+      "id": 14,
+      "title": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "description": "A novel focusing on the mental anguish and moral dilemmas of a destitute young man.",
+      "image": "https://images.pexels.com/photos/345127/pexels-photo-345127.jpeg",
+      "rating": 4.2,
+      "publisher": "The Russian Messenger",
+      "isbn": "9780486415871",
+      "price": "29.99€"
+    },
+    {
+      "id": 15,
+      "title": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "description": "A novel that follows the adventures of a man who reads so many chivalric romances.",
+      "image": "https://images.pexels.com/photos/264629/pexels-photo-264629.jpeg",
+      "rating": 3.9,
+      "publisher": "Francisco de Robles",
+      "isbn": "9780142437230",
+      "price": "49.99€"
+    },
+    {
+      "id": 16,
+      "title": "Wuthering Heights",
+      "author": "Emily Brontë",
+      "description": "A novel that depicts the passionate love between the wild, destructive Catherine and the rugged, brooding Heathcliff.",
+      "image": "https://images.pexels.com/photos/356089/pexels-photo-356089.jpeg",
+      "rating": 3.8,
+      "publisher": "Thomas Cautley Newby",
+      "isbn": "9780141439556",
+      "price": "24.99€"
+    },
+    {
+      "id": 17,
+      "title": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+      "description": "A novel that follows the lives of the Karamazov brothers, each with their own distinct personalities and desires.",
+      "image": "https://images.pexels.com/photos/356090/pexels-photo-356090.jpeg",
+      "rating": 4.3,
+      "publisher": "The Russian Messenger",
+      "isbn": "9780140449242",
+      "price": "39.99€"
+    }
+  ]
+}
