@@ -1,15 +1,24 @@
 <template>
     <div class="book-showcase">
         <template v-if="!booksOnScreen.length">
-            <img
+            <div class="showcase-stub">
+                <img
                 src="../assets/icons/books.svg"
                 alt="books"
                 height="144"
-                width="144" 
+                width="144"
             />
+            </div>
         </template>
         <template v-else>
-            {{ booksOnScreen }}
+            <p class="results-title">{{ booksOnScreen.length }} results</p>
+            <div class="books">
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <template v-for="book in booksOnScreen" :key="book.id">
+                    <BookCard :book="book"/>
+                </template>
+            </div >
+            </div>
         </template>
     </div>
 </template>
@@ -18,8 +27,10 @@
 import type { Book } from '@src/interfaces/book';
 import booksService from '@src/services/books-service';
 import { defineComponent } from 'vue';
-  
+import BookCard from '@src/components/BookCard.vue';
+
 export default defineComponent({
+    components: { BookCard },
     props: {
         filterInput: {
             required: true,
@@ -45,10 +56,22 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
+@import '../styles/custom/variables';
 .book-showcase {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+    .showcase-stub {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .results-title {
+        color: $black-055;
+        font-family: Inter;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
 }
 </style>
