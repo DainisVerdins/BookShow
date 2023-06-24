@@ -7,7 +7,7 @@
               <BookCard :book="book"/>
               <div class="d-flex flex-row bd-highlight mt-3">
                   <span class="review-raiting me-2">{{ reviewRating }}</span>
-                  <p class="mb-0">Hre must be star raiting</p>
+                 <StarRaiting :rating="book.rating" />
               </div>
             </div>
           </div>
@@ -24,9 +24,10 @@ import type { Book } from '@src/interfaces/book';
 import booksService from '@src/services/books-service';
 import { defineComponent } from 'vue';
 import BookCard from '@src/components/BookCard.vue';
+import StarRaiting from '@src/components/StarRaiting.vue';
   
 export default defineComponent ({
-  components: { BookCard },
+  components: { BookCard, StarRaiting },
   props: {
         id: {
             required: true,
