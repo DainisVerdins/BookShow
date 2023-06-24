@@ -15,7 +15,10 @@
             <div class="books">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <template v-for="book in booksOnScreen" :key="book.id">
-                    <BookCard :book="book"/>
+                    <BookCard
+                        :book="book"
+                        @click="openBookDetails(book.id)"
+                    />
                 </template>
             </div >
             </div>
@@ -42,7 +45,15 @@ export default defineComponent({
             booksOnScreen: [] as Book[]
         };
     },
-
+    methods: {
+        openBookDetails(id: number):void {
+            console.log('openBookDetails');
+            this.$router.push({
+                name: 'book-review',
+                params: { id: id }
+            });
+        }
+    },
     watch: {
         async filterInput(newFilterInput: string) {
             // tmp solution // TODO: fix me

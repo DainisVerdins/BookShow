@@ -12,5 +12,10 @@ export default defineConfig({
     alias: {
       '@src': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  // TODO: this stuf must be putted in settings.json or something
+  server: {
+    port: 5173,
+    host: 'localhost',
+  },
 })
