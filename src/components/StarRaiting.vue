@@ -1,17 +1,15 @@
 <template>
-    <div class="star-raiting">
+    <div
+        class="star-raiting"
+        @mouseleave="resetRating"
+    >
         <span 
-            v-for="index in starLimit"
-            :key="index"
-            class="star star-outlined">
+            v-for="n in starLimit"
+            :key="n"
+            :class="['star', isOutlined(n) ? 'star-outlined' : 'star-filled']"
+            @click="setRaiting(n)"
+        >
         </span>
-        <div class="star-raiting-colored" :style="raitingWidthStyle">
-            <span
-                v-for="index in starLimit"
-                :key="index"
-                class="star star-filled">
-            </span>
-        </div>
     </div>
 </template>
   
@@ -28,15 +26,44 @@ export default defineComponent ({
         starLimit: {
             type: Number,
             default: 5,
+        },
+        readOnly: {
+            type: Boolean,
+            default: false,
+        }
+    },
+    mounted() {
+        this.currentRating = this.rating;
+    },
+    data() {
+        return {
+            currentRating: 0,
+            selectedRaiting: 0,
         }
     },
     computed: {
-        raitingWidth(): Number {
-            return this.rating / this.starLimit * 100;
+    },
+    methods: {
+        selectRaiting(index: number) {
+            console.log('hower on star with index',index);
+            this.selectedRaiting = index;
+        },
+        setRaiting(index: number) {
+            if(this.readOnly)
+                return;
+            this.selectedRaiting = index;
+            this.currentRating = index;
         },
 
-        raitingWidthStyle(): string {
-            return `width: ${this.raitingWidth}%;`;
+        resetRating(): void {
+            if (!this.readOnly && !this.currentRating) {
+                this.selectedRaiting = 0;
+            }
+        },
+
+        isOutlined(n: number): boolean {
+            console.log(Math.round(this.currentRating));
+            return n > Math.round(this.currentRating);
         }
     }
 });
@@ -65,12 +92,19 @@ export default defineComponent ({
         width: 24px;
         height: 24px;
         flex-shrink: 0;
+        padding: 5px;
 
         &-filled {
             background: url('/src/assets/icons/star-filled.svg');
+            &:hover {
+                background-color: blue;
+            }
         }
         &-outlined {
             background: url('/src/assets/icons/star-outlined.svg');
+            &:hover {
+                background-color: yellow;
+            }
         }
     }
 }

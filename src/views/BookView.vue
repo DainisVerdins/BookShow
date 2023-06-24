@@ -7,7 +7,7 @@
               <BookCard :book="book"/>
               <div class="d-flex flex-row bd-highlight mt-3">
                   <span class="review-raiting me-2">{{ reviewRating }}</span>
-                 <StarRaiting :rating="book.rating" />
+                 <StarRaiting :rating="book.rating" read-only/>
               </div>
             </div>
           </div>
@@ -16,6 +16,7 @@
           </div>
         </div>
         <p>Here must be component submiting review</p>
+        <StarRaiting  />
     </div>
 </template>
   
