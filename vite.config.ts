@@ -10,7 +10,12 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@src': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  // TODO: this stuf must be putted in settings.json or something
+  server: {
+    port: 5173,
+    host: 'localhost',
+  },
 })
