@@ -16,7 +16,6 @@
           </div>
         </div>
         <p>Here must be component submiting review</p>
-        <StarRaiting  />
     </div>
 </template>
   

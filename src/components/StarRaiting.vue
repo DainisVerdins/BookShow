@@ -4,10 +4,10 @@
         @mouseleave="resetRating"
     >
         <span 
-            v-for="n in starLimit"
-            :key="n"
-            :class="['star', isOutlined(n) ? 'star-outlined' : 'star-filled']"
-            @click="setRaiting(n)"
+            v-for="_n in starLimit"
+            :key="_n"
+            :class="['star', isOutlined(_n) ? 'star-outlined' : 'star-filled']"
+            @click="setRaiting(_n)"
         >
         </span>
     </div>
@@ -41,13 +41,7 @@ export default defineComponent ({
             selectedRaiting: 0,
         }
     },
-    computed: {
-    },
     methods: {
-        selectRaiting(index: number) {
-            console.log('hower on star with index',index);
-            this.selectedRaiting = index;
-        },
         setRaiting(index: number) {
             if(this.readOnly)
                 return;
@@ -62,7 +56,6 @@ export default defineComponent ({
         },
 
         isOutlined(n: number): boolean {
-            console.log(Math.round(this.currentRating));
             return n > Math.round(this.currentRating);
         }
     }
@@ -92,19 +85,12 @@ export default defineComponent ({
         width: 24px;
         height: 24px;
         flex-shrink: 0;
-        padding: 5px;
 
         &-filled {
             background: url('/src/assets/icons/star-filled.svg');
-            &:hover {
-                background-color: blue;
-            }
         }
         &-outlined {
             background: url('/src/assets/icons/star-outlined.svg');
-            &:hover {
-                background-color: yellow;
-            }
         }
     }
 }
