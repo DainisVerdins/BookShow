@@ -46,8 +46,6 @@ export default defineComponent({
     max-height: 110px;
     border: none !important;
     border-radius: 0 !important;
-   // margin-bottom: 10px;
-   // margin-right: 10px;
 
     .card-body {
         padding: 0 10px 0 10px;
@@ -99,6 +97,7 @@ export default defineComponent({
 
     &:hover {
         background-color: yellow;
+        cursor: pointer;
     }
 }
 </style>

@@ -46,8 +46,7 @@ export default defineComponent({
         };
     },
     methods: {
-        openBookDetails(id: number):void {
-            console.log('openBookDetails');
+        openBookDetails(id: number): void {
             this.$router.push({
                 name: 'book-review',
                 params: { id: id }
@@ -55,7 +54,7 @@ export default defineComponent({
         }
     },
     watch: {
-        async filterInput(newFilterInput: string) {
+        async filterInput(newFilterInput: string): Promise<void> {
             // tmp solution // TODO: fix me
             // TODO: probably remove this logic to computed property to catche result
             const books = await booksService.getBooks();

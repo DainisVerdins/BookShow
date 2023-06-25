@@ -1,6 +1,18 @@
 <template>
   <div v-if="isLoaded">
-    <h1>Here must be thing to go back </h1>
+    <div class="navigation-bar">
+      <img
+        src="../assets/icons/arrow-to-left.svg"
+        alt="arrow to left"
+        @click="back"
+      />
+      <h2
+        class="navigation-text"
+        @click="back"
+      >
+        Explore
+      </h2>
+    </div>
     <div class="row book-preview">
       <div class="col">
         <div class="content">
@@ -106,12 +118,35 @@ export default defineComponent ({
             this.reviewRating = 0;
             this.reviewText = '';
         }
-      }
+    },
+    back(): void {
+      this.$router.push({ name: 'home'});
     }
+  }
 });
 </script>
 <style lang="scss">
 @import '../styles/custom/variables';
+
+.navigation-bar {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+
+  .navigation-text {
+    margin-bottom: 0;
+    color: $black-095;
+    font-size: 16px;
+    font-family: Inter;
+    font-weight: 700;
+    line-height: 24px;
+    text-decoration-line: underline;
+  }
+  &:hover {
+    background-color: yellow;
+    cursor: pointer;
+  }
+}
 
 .book-preview {
   margin-bottom: 40px;
