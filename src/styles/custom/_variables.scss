@@ -4,9 +4,13 @@ $black-095: rgba(0, 0, 0, .95);
 $black-070: rgba(0, 0, 0, .70);
 $black-055: rgba(0, 0, 0, .55);
 
+$ui-light-blue: #CFEBFF;
+$ui-primary: #3980B2;
+
+$ui-grey: #DDE1E3;
 
 // Your variable overrides
-$primary: #3980B2;
+$primary: $ui-primary;
 $body-tertiary-bg: #FFFFFF;
 // h3
 $h3-font-size: 32px;

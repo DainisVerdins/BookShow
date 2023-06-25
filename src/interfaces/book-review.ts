@@ -3,4 +3,4 @@ export interface BookReview {
     reviewText?: string;
     bookRating: number;
     id?: number;
-  }
+}

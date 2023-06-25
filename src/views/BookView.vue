@@ -20,30 +20,39 @@
     </div>
     <!--Review submiting part-->
     <div class="review-section mb-3">
-      <h1 class="review-title">Write a review</h1>
-      <b-form>
-        <div class="star-raiting-choiser">
-          <h2 class="star-raiting-title">Rate the book</h2>
-          <StarRaiting v-model:rating="reviewRating" />
-        </div>
-        <div class="row">
-          <div class="col-8">
-            <b-form-textarea
-              v-model="reviewText"
-              placeholder="Enter review text..."
-              rows="3"
-              max-rows="6"
-            />
+      <template v-if="showSubmitForm">
+        <h1 class="review-title">Write a review</h1>
+        <b-form>
+          <div class="star-raiting-choiser">
+            <h2 class="star-raiting-title">Rate the book</h2>
+            <StarRaiting v-model:rating="reviewRating" />
           </div>
+          <div class="row">
+            <div class="col-8">
+              <b-form-textarea
+                v-model="reviewText"
+                placeholder="Enter review text..."
+                rows="3"
+                max-rows="6"
+                class="form-textarea"
+              />
+            </div>
+          </div>
+          <b-button
+            type="submit"
+            variant="primary"
+            class="mt-4 btn-submit-review"
+            @click="submitReview"
+          >
+            Submit review
+          </b-button>
+        </b-form>
+      </template>
+      <template v-else>
+        <div class="badge review-notification-badge">
+          <p class="my-0">Thank you! Review received.</p>
         </div>
-        <b-button
-          type="submit"
-          variant="primary"
-          class="mt-4 btn-submit-review"
-        >
-          Submit review
-        </b-button>
-      </b-form>
+      </template>
     </div>
   </div>
 </template>
@@ -54,8 +63,10 @@ import booksService from '@src/services/books-service';
 import { defineComponent } from 'vue';
 import BookCard from '@src/components/BookCard.vue';
 import StarRaiting from '@src/components/StarRaiting.vue';
+import bookReviewService from '@src/services/book-review-service';
+import type { BookReview } from '@src/interfaces/book-review';
 
-export default defineComponent({
+export default defineComponent ({
   components: { BookCard, StarRaiting },
   props: {
     id: {
@@ -63,21 +74,40 @@ export default defineComponent({
       type: String,
     },
   },
+
   async mounted(): Promise<void> {
     this.book = await booksService.getBookById(parseInt(this.id));
     this.bookRaiting = this.book.rating;
     this.isLoaded = true;
   },
+
   data() {
     return {
       book: {} as Book,
       isLoaded: false,
-      value: 0,
       bookRaiting: 0,
       reviewText: '',
-      reviewRating: 0
+      reviewRating: 0,
+      showSubmitForm: true,
     };
   },
+
+  methods: {
+    async submitReview() {
+      try {
+        await bookReviewService.saveReview({
+          bookId: parseInt(this.id),
+          reviewText: this.reviewText,
+          bookRating: this.reviewRating,
+        } as BookReview);
+        this.showSubmitForm = false;
+        } catch (error: unknown) {
+            console.warn((error as Error).message); // TODO: add send notification to user
+            this.reviewRating = 0;
+            this.reviewText = '';
+        }
+      }
+    }
 });
 </script>
 <style lang="scss">
@@ -116,7 +146,11 @@ export default defineComponent({
     font-weight: 700;
   }
 
-
+  .form-textarea {
+    border-radius: 4px;
+    border: 1px solid $ui-grey;
+    background: #fff;
+  }
   .star-raiting {
     &-choiser {
       margin-bottom: 24px;
@@ -129,7 +163,15 @@ export default defineComponent({
       line-height: 28px;
     }
   }
-
+  .review-notification-badge {
+    padding: 10px;
+    background-color: #CFEBFF;
+    border-radius: 4px;
+    color: $black-095;
+    font-size: 14px;
+    font-family: Inter;
+    font-weight: 700;
+  }
   .btn-submit-review {
     border-radius: 24px;
     border: 2px solid #3980B2;
