@@ -13,10 +13,11 @@
         Explore
       </h2>
     </div>
+
     <div class="row book-preview">
-      <div class="col">
+      <div class="col-3 pe-0">
         <div class="content">
-          <BookCard :book="book" />
+          <BookCard :book="book" show-book-publisher />
           <div class="d-flex flex-row bd-highlight mt-3">
             <span class="review-raiting me-2">{{ bookRaiting }}</span>
             <StarRaiting
@@ -26,10 +27,11 @@
           </div>
         </div>
       </div>
-      <div class="col book-description">
+      <div class="col-9 book-description ps-0">
         <p class="mb-0">{{ book.description }}</p>
       </div>
     </div>
+    
     <!--Review submiting part-->
     <div class="review-section mb-3">
       <template v-if="showSubmitForm">
@@ -150,7 +152,6 @@ export default defineComponent ({
 
 .book-preview {
   margin-bottom: 40px;
-  border: 1px solid green;
 
   .content {
     .review-raiting {

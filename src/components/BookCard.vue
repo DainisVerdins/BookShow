@@ -11,10 +11,14 @@
             </b-col>
         <b-col md="8">
             <b-card-body :title="book.title" class="h-100">
+                <slot name="card-body">
+                    
+                </slot>
                 <div class="card-body-content">
-                    <p class="mb-2 card-author"> {{ book.author }} </p>
-                    <p class="mb-2 card-year">{{ 2023 }}</p>
-                    <p class="card-price">{{ book.price }}</p>
+                    <p :class="['book-author', showBookPublisher ? 'my-0' : 'mb-2']"> {{ book.author }} </p>
+                    <p :class="['book-year', showBookPublisher ? 'my-0' : 'mb-2']">{{ 2023 }}</p>
+                    <p :class="['book-price', showBookPublisher ? 'my-0' : 'mb-2']">{{ book.price }}</p>
+                    <p v-if="showBookPublisher" class="book-publisher my-0">{{ book.publisher }}</p>
                 </div>
             </b-card-body>
         </b-col>
@@ -28,11 +32,16 @@ import type { Book } from '@src/interfaces/book';
 import { defineComponent, type PropType } from 'vue';
   
 export default defineComponent({
+    name: 'BookCard',
     props: {
         book: {
             required: true,
             type: Object as PropType<Book>,
         },
+        showBookPublisher: {
+            type: Boolean,
+            default: false
+        }
     },
 });
 </script>
@@ -51,34 +60,34 @@ export default defineComponent({
         padding: 0 10px 0 10px;
 
         .card-body-content {
-            .card-author {
-                font-family: Inter; // TODO:  fix code duplication
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 17px;
-                letter-spacing: 0em;
-                text-align: left;
-                color: $black-070;
-
-            }
-            .card-year {
-                font-family: Inter;
-                font-size: 14px;
-                font-weight: 400;
-                line-height: 17px;
-                letter-spacing: 0em;
-                text-align: left;
-                color: $black-055;
-
-            }
-            .card-price {
-                font-family: Inter;
-                font-size: 14px;
-                font-weight: 700;
-                line-height: 17px;
-                letter-spacing: 0em;
-                text-align: left;
-                color: $black-095;
+            .book {
+                &-author {
+                    font-family: Inter; // TODO:  fix code duplication
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 17px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: $black-070;
+                }
+                &-year, &-publisher {
+                    font-family: Inter;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 17px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: $black-055;
+                }
+                &--price {
+                    font-family: Inter;
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 17px;
+                    letter-spacing: 0em;
+                    text-align: left;
+                    color: $black-095;
+                }
             }
         }
     }
