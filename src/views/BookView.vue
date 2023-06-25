@@ -132,43 +132,41 @@ export default defineComponent ({
 <style lang="scss">
 @import '../styles/custom/variables';
 
-
 .book-view {
   .navigation-bar {
     display: inline-flex;
     flex-wrap: wrap;
     margin-bottom: 40px;
 
-  .navigation-text {
-    margin-bottom: 0;
-    color: $black-095;
-    font-size: 16px;
-    font-family: Inter;
-    font-weight: 700;
-    line-height: 24px;
-    text-decoration-line: underline;
-  }
-  &:hover {
-    background-color: yellow;
-    cursor: pointer;
+    .navigation-text {
+      margin-bottom: 0;
+      color: $black-095;
+      font-size: 16px;
+      font-family: Inter;
+      font-weight: 700;
+      line-height: 24px;
+      text-decoration-line: underline;
+    }
+    &:hover {
+      background-color: yellow;
+      cursor: pointer;
+    }
   }
 }
 
 .book-preview {
   margin-bottom: 40px;
+  .review-raiting {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: $black-055;
 
-  .content {
-    .review-raiting {
-      font-size: 16px;
-      font-weight: 400;
-      line-height: 24px;
-      letter-spacing: 0em;
-      text-align: left;
-      color: $black-055;
-
-      margin-bottom: 0;
-    }
+    margin-bottom: 0;
   }
+  
 
   .book-description {
     display: flex;
@@ -178,7 +176,6 @@ export default defineComponent ({
 }
 
 .review-section {
-
   .review-title {
     color: $black-095;
     font-size: 24px;
@@ -227,6 +224,4 @@ export default defineComponent ({
     }
   }
 }
-}
-
 </style>

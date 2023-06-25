@@ -5,7 +5,7 @@ import axios from 'axios'
 const bookReviewService = {
   // this heavy work must to be done in back-end
     saveReview: async (review: BookReview): Promise<void> => {
-      const result = await axios.post<BookReview>(constants.REVIEW_ENDPOINT, review);
+      await axios.post<BookReview>(constants.REVIEW_ENDPOINT, review);
     },
 
 }
