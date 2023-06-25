@@ -47,6 +47,8 @@ export default defineComponent ({
                 return;
             this.selectedRaiting = index;
             this.currentRating = index;
+
+            this.$emit('update:rating', index);
         },
 
         resetRating(): void {
