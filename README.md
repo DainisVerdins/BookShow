@@ -29,6 +29,3 @@ npm run lint
 
 ## Libs used
 Bootstrap-vue [here](https://bootstrap-vue-next.github.io/bootstrap-vue-next/docs.html)
-
-// About raiting see this library 
-https://github.com/craigh411/vue-star-rating

@@ -1,22 +1,26 @@
 <template>
-  <main>
-    <h1 class="header-page-text">Explore books</h1>
-    <b-input-group size="sm" class="mb-4 ">
-      <b-input-group-prepend is-text>
-        <img
-            src="../assets/icons/loupe.svg"
-            alt="loupe"
-            height="19"
-            width="19" 
-        />
-      </b-input-group-prepend>
+  <div class="home-view px-3 px-sm-4 px-lg-4 px-xl-5">
+    <h1 class="header-page-text d-none d-sm-block d-md-block d-lg-block d-xl-block">
+      Explore books
+    </h1>
+    <div class="search-bar mb-4 col-lg-8 col-xl-3 mx-auto  mt-4">
+      <b-input-group>
+        <b-input-group-prepend is-text>
+          <img
+              src="../assets/icons/loupe.svg"
+              alt="loupe"
+              height="19"
+              width="19" 
+          />
+        </b-input-group-prepend>
       <b-form-input
         v-model="filterText"
         placeholder="Search for a book"
       />
     </b-input-group>
-    <BooksShowcase :filter-input="filterText"/>
-  </main>
+    </div>
+      <BooksShowcase :filter-input="filterText"/>
+  </div>
 </template>
 
 <script lang="ts">
@@ -40,5 +44,9 @@ export default defineComponent ({
     font-family: 'Inter';
     margin-bottom: 32px;
     text-align: center;
+  }
+
+  .search-bar {
+    margin-bottom: 32px;
   }
 </style>

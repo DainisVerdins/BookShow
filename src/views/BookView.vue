@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoaded">
+  <div v-if="isLoaded" class="book-view">
     <div class="navigation-bar">
       <img
         src="../assets/icons/arrow-to-left.svg"
@@ -15,9 +15,12 @@
     </div>
 
     <div class="row book-preview">
-      <div class="col-3 pe-0">
-        <div class="content">
-          <BookCard :book="book" show-book-publisher />
+      <div class="col-12 col-lg-4 col-xl-4 pe-0">
+          <BookCard
+            :book="book"
+            show-book-publisher
+            read-only
+          />
           <div class="d-flex flex-row bd-highlight mt-3">
             <span class="review-raiting me-2">{{ bookRaiting }}</span>
             <StarRaiting
@@ -25,9 +28,8 @@
               read-only
             />
           </div>
-        </div>
       </div>
-      <div class="col-9 book-description ps-0">
+      <div class="col-12 col-lg-8 col-xl-8 book-description">
         <p class="mb-0">{{ book.description }}</p>
       </div>
     </div>
@@ -42,20 +44,20 @@
             <StarRaiting v-model:rating="reviewRating" />
           </div>
           <div class="row">
-            <div class="col-8">
+            <div class="col-12 col-lg-8 col-xl-5">
               <b-form-textarea
                 v-model="reviewText"
                 placeholder="Enter review text..."
                 rows="3"
                 max-rows="6"
-                class="form-textarea"
+                class="form-textarea "
               />
             </div>
           </div>
           <b-button
             type="submit"
             variant="primary"
-            class="mt-4 btn-submit-review"
+            class="mt-4 btn-submit-review col-12 col-lg-2 col-xl-2"
             @click="submitReview"
           >
             Submit review
@@ -63,7 +65,7 @@
         </b-form>
       </template>
       <template v-else>
-        <div class="badge review-notification-badge">
+        <div class="col-8 col-sm-4 col-lg-3 col-xl-2 badge review-notification-badge">
           <p class="my-0">Thank you! Review received.</p>
         </div>
       </template>
@@ -130,10 +132,12 @@ export default defineComponent ({
 <style lang="scss">
 @import '../styles/custom/variables';
 
-.navigation-bar {
-  display: inline-flex;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
+
+.book-view {
+  .navigation-bar {
+    display: inline-flex;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
 
   .navigation-text {
     margin-bottom: 0;
@@ -223,4 +227,6 @@ export default defineComponent ({
     }
   }
 }
+}
+
 </style>

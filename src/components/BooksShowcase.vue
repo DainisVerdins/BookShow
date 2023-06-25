@@ -55,7 +55,11 @@ export default defineComponent({
     },
     watch: {
         async filterInput(newFilterInput: string): Promise<void> {
-            // tmp solution // TODO: fix me
+            if(!newFilterInput) {
+                this.booksOnScreen = [];
+                return;
+            }
+
             // TODO: probably remove this logic to computed property to catche result
             const books = await booksService.getBooks();
 
