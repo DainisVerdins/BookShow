@@ -23,7 +23,7 @@
           />
           <div class="d-flex flex-row bd-highlight mt-3">
             <span class="review-raiting me-2">{{ bookRaiting }}</span>
-            <StarRaiting
+            <ComposeTheStarRating
               :rating="book.rating"
               read-only
             />
@@ -41,7 +41,7 @@
         <b-form>
           <div class="star-raiting-choiser">
             <h2 class="star-raiting-title">Rate the book</h2>
-            <StarRaiting v-model:rating="reviewRating" />
+            <ComposeTheStarRating v-model:rating="reviewRating" />
           </div>
           <div class="row">
             <div class="col-12 col-lg-8 col-xl-5">
@@ -78,12 +78,12 @@ import type { Book } from '@src/interfaces/book';
 import booksService from '@src/services/books-service';
 import { defineComponent } from 'vue';
 import BookCard from '@src/components/BookCard.vue';
-import StarRaiting from '@src/components/StarRaiting.vue';
+import ComposeTheStarRating from '@src/components/ComposeTheStarRating.vue';
 import bookReviewService from '@src/services/book-review-service';
 import type { BookReview } from '@src/interfaces/book-review';
 
 export default defineComponent ({
-  components: { BookCard, StarRaiting },
+  components: { BookCard, ComposeTheStarRating },
   props: {
     id: {
       required: true,
