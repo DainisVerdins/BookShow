@@ -15,7 +15,7 @@
             <div class="books">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <template v-for="book in booksOnScreen" :key="book.id">
-                    <BookCard
+                    <ComposeTheBookCard
                         :book="book"
                         @click="openBookDetails(book.id)"
                     />
@@ -30,10 +30,10 @@
 import type { Book } from '@src/interfaces/book';
 import booksService from '@src/services/books-service';
 import { defineComponent } from 'vue';
-import BookCard from '@src/components/BookCard.vue';
+import ComposeTheBookCard from '@src/components/ComposeTheBookCard.vue';
 
 export default defineComponent({
-    components: { BookCard },
+    components: { ComposeTheBookCard },
     props: {
         filterInput: {
             required: true,
