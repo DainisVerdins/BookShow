@@ -19,16 +19,16 @@
       />
     </b-input-group>
     </div>
-      <BooksShowcase :filter-input="filterText"/>
+      <ComposeTheBooksShowcase :search-text="filterText"/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import BooksShowcase from '@src/components/BooksShowcase.vue';
+import ComposeTheBooksShowcase from '@src/components/ComposeTheBooksShowcase.vue';
 
 export default defineComponent ({
-  components: { BooksShowcase },
+  components: { ComposeTheBooksShowcase },
   data() {
     return {
       filterText: ''

@@ -15,12 +15,12 @@
             <div class="books">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <template v-for="book in booksOnScreen" :key="book.id">
-                    <ComposeTheBookCard
-                        :book="book"
-                        @click="openBookDetails(book.id)"
-                    />
-                </template>
-            </div >
+                        <ComposeTheBookCard
+                            :book="book"
+                            @click="openBookDetails(book.id)"
+                        />
+                    </template>
+                </div >
             </div>
         </template>
     </div>

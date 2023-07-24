@@ -16,7 +16,7 @@
 
     <div class="row book-preview">
       <div class="col-12 col-lg-4 col-xl-4 pe-0">
-          <BookCard
+          <ComposeTheBookCard
             :book="book"
             show-book-publisher
             read-only
@@ -77,13 +77,13 @@
 import type { Book } from '@src/interfaces/book';
 import booksService from '@src/services/books-service';
 import { defineComponent } from 'vue';
-import BookCard from '@src/components/BookCard.vue';
+import ComposeTheBookCard from '@src/components/ComposeTheBookCard.vue';
 import ComposeTheStarRating from '@src/components/ComposeTheStarRating.vue';
 import bookReviewService from '@src/services/book-review-service';
 import type { BookReview } from '@src/interfaces/book-review';
 
 export default defineComponent ({
-  components: { BookCard, ComposeTheStarRating },
+  components: { ComposeTheBookCard, ComposeTheStarRating },
   props: {
     id: {
       required: true,
