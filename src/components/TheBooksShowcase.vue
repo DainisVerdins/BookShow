@@ -10,7 +10,7 @@
             <div class="books">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <template v-for="book in filteredBooks" :key="book.id">
-                        <ComposeTheBookCard :book="book" @click="openBookDetails(book.id)" />
+                        <TheBookCard :book="book" @click="openBookDetails(book.id)" />
                     </template>
                 </div>
             </div>
@@ -19,7 +19,7 @@
 </template>
   
 <script setup lang="ts">
-import ComposeTheBookCard from '@src/components/ComposeTheBookCard.vue';
+import TheBookCard from '@src/components/TheBookCard.vue';
 import type { Book } from '@src/interfaces/book';
 import booksService from '@src/services/books-service';
 import { type Ref, ref, onMounted, computed } from 'vue';

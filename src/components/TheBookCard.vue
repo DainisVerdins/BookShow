@@ -1,23 +1,17 @@
 <template>
     <div class="col">
-        <b-card no-body :class="['overflow-hidden book-card', readOnly ? '' : 'clickable' ]">
+        <b-card no-body :class="['overflow-hidden book-card', props.readOnly ? '' : 'clickable']">
             <b-row class="g-0 g-sm-2 h-100">
                 <b-col md="4" sm="3" class="col-4" lg="4" xl="3">
-                    <b-card-img
-                        :src="book.image"
-                        alt="Book cover"
-                    />
+                    <b-card-img :src="props.book.image" alt="Book cover" />
                 </b-col>
                 <b-col md="8" sm="9" class="col-8" lg="8" xl="9">
-                    <b-card-body
-                        :title="book.title"
-                        class="h-100 px-xl-3 px-lg-2 px-sm-3"
-                    >
+                    <b-card-body :title="props.book.title" class="h-100 px-xl-3 px-lg-2 px-sm-3">
                         <div class="card-body-content">
-                            <p :class="['book-author', showBookPublisher ? 'my-0' : 'mb-2']"> {{ book.author }} </p>
-                            <p :class="['book-year', showBookPublisher ? 'my-0' : 'mb-2']">{{ 2023 }}</p>
-                            <p :class="['book-price', showBookPublisher ? 'my-0' : 'mb-2']">{{ book.price }}</p>
-                            <p v-if="showBookPublisher" class="book-publisher my-0">{{ book.publisher }}</p>
+                            <p :class="['book-author', props.showBookPublisher ? 'my-0' : 'mb-2']"> {{ props.book.author }} </p>
+                            <p :class="['book-year', props.showBookPublisher ? 'my-0' : 'mb-2']">{{ 2023 }}</p>
+                            <p :class="['book-price', props.showBookPublisher ? 'my-0' : 'mb-2']">{{ props.book.price }} </p>
+                            <p v-if="props.showBookPublisher" class="book-publisher my-0">{{ props.book.publisher }} </p>
                         </div>
                     </b-card-body>
                 </b-col>
@@ -26,26 +20,13 @@
     </div>
 </template>
   
-<script lang="ts">
+<script setup lang="ts">
 import type { Book } from '@src/interfaces/book';
-import { defineComponent, type PropType } from 'vue';
-
-export default defineComponent({
-    name: 'BookCard',
-    props: {
-        book: {
-            required: true,
-            type: Object as PropType<Book>,
-        },
-        showBookPublisher: {
-            type: Boolean,
-            default: false
-        },
-        readOnly: {
-            type: Boolean,
-            default: false
-        }
-    },
+import type { PropType } from 'vue';
+const props = defineProps({
+    book: { type: Object as PropType<Book>, required: true },
+    showBookPublisher: { type: Boolean, default: false },
+    readOnly: { type: Boolean, default: false }
 });
 </script>
 
