@@ -27,5 +27,17 @@ npm run build
 npm run lint
 ```
 
+### Run tests [Vitest](https://vitest.dev)
+
+```sh
+npm run test
+```
+
+### Run test coverage [Vitest](https://vitest.dev)
+
+```sh
+npm run coverage
+```
+
 ## Libs used
 Bootstrap-vue [here](https://bootstrap-vue-next.github.io/bootstrap-vue-next/docs.html)
