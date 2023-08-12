@@ -19,9 +19,9 @@
 </template>
   
 <script setup lang="ts">
-import TheBookCard from '@src/components/TheBookCard.vue';
-import type { Book } from '@src/interfaces/book';
-import booksService from '@src/services/books-service';
+import TheBookCard from '@/components/TheBookCard.vue';
+import type { Book } from '@/interfaces/book';
+import booksService from '@/services/books-service';
 import { type Ref, ref, onMounted, computed } from 'vue';
 import { useRouter } from 'vue-router';
 
