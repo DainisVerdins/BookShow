@@ -1,7 +1,7 @@
 # bookshelf
 
 Bookshelf app where from DB you got array of books to display to user. User can click on them and left review.
-Design is responsive
+Design is responsive !!!
 
 ## Project Setup
 

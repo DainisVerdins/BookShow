@@ -1,6 +1,6 @@
 <template>
     <div class="col">
-        <b-card no-body :class="['overflow-hidden book-card', props.readOnly ? '' : 'clickable']">
+        <b-card data-test="b-card" no-body :class="['overflow-hidden book-card', props.readOnly ? '' : 'clickable']">
             <b-row class="g-0 g-sm-2 h-100">
                 <b-col md="4" sm="3" class="col-4" lg="4" xl="3">
                     <b-card-img :src="props.book.image" alt="Book cover" />

@@ -38,8 +38,6 @@ function setRating(index: number) {
 }
 
 const isOutlined = ((index: number): boolean => {
-    console.log(index);
-    console.log(Math.round(currentRating.value));
     return index > Math.round(currentRating.value);
 });
 
