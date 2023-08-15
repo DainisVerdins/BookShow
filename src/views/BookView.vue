@@ -21,6 +21,7 @@
     </div>
 
     <!--Review submitting part-->
+    
     <div class="review-section mb-3">
       <template v-if="showSubmitForm">
         <h1 class="review-title">Write a review</h1>
@@ -100,6 +101,7 @@ const submitReview = async (): Promise<void> => {
   }
 }
 
+
 </script>
 <style lang="scss">
 @import '../styles/custom/variables';
@@ -141,7 +143,6 @@ const submitReview = async (): Promise<void> => {
     margin-bottom: 0;
   }
 
-
   .book-description {
     display: flex;
     flex-direction: column;
@@ -176,7 +177,6 @@ const submitReview = async (): Promise<void> => {
       line-height: 28px;
     }
   }
-
   .review-notification-badge {
     padding: 10px;
     background-color: #CFEBFF;
