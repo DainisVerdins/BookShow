@@ -1,5 +1,5 @@
 
-import type { BookReview } from '@/interfaces/book-review';
+import type { BookReview } from '@interfaces/book-review';
 import constants from '@/constants/constants';
 
 import axios from 'axios'

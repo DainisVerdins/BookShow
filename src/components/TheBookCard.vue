@@ -21,7 +21,7 @@
 </template>
   
 <script setup lang="ts">
-import type { Book } from '@/interfaces/book';
+import type { Book } from '@interfaces/book';
 import type { PropType } from 'vue';
 const props = defineProps({
     book: { type: Object as PropType<Book>, required: true },
