@@ -1,5 +1,7 @@
-import type { Book } from '@src/interfaces/book';
-import constants from '@src/constants/constants';
+
+import type { Book } from '@interfaces/book';
+import constants from '@/constants/constants';
+
 
 const booksService = {
   // this heavy work must to be done in back-end
