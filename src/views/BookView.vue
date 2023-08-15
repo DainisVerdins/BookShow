@@ -21,7 +21,7 @@
     </div>
 
     <!--Review submitting part-->
-    
+
     <div class="review-section mb-3">
       <template v-if="showSubmitForm">
         <h1 class="review-title">Write a review</h1>
@@ -52,12 +52,14 @@
 </template>
   
 <script setup lang="ts">
+
 import type { Book } from '@interfaces/book';
 import booksService from '@services/books-service';
 import TheBookCard from '@components/TheBookCard.vue';
 import TheStarRating from '@components/TheStarRating.vue';
 import bookReviewService from '@services/book-review-service';
 import type { BookReview } from '@interfaces/book-review';
+
 import { onMounted, reactive, ref, type Ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -100,7 +102,6 @@ const submitReview = async (): Promise<void> => {
     reviewText.value = '';
   }
 }
-
 
 </script>
 <style lang="scss">
@@ -177,6 +178,7 @@ const submitReview = async (): Promise<void> => {
       line-height: 28px;
     }
   }
+
   .review-notification-badge {
     padding: 10px;
     background-color: #CFEBFF;
