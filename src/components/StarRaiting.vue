@@ -17,7 +17,7 @@
 import { defineComponent } from 'vue';
   
 export default defineComponent ({
-    name: 'StarRaiting',
+    name: 'StarRating',
     props: {
         rating: {
             type: Number,

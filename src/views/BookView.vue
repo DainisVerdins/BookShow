@@ -52,12 +52,12 @@
 </template>
   
 <script setup lang="ts">
-import type { Book } from '@/interfaces/book';
-import booksService from '@/services/books-service';
-import TheBookCard from '@/components/TheBookCard.vue';
-import TheStarRating from '@/components/TheStarRating.vue';
-import bookReviewService from '@/services/book-review-service';
-import type { BookReview } from '@/interfaces/book-review';
+import type { Book } from '@interfaces/book';
+import booksService from '@services/books-service';
+import TheBookCard from '@components/TheBookCard.vue';
+import TheStarRating from '@components/TheStarRating.vue';
+import bookReviewService from '@services/book-review-service';
+import type { BookReview } from '@interfaces/book-review';
 import { onMounted, reactive, ref, type Ref } from 'vue';
 import { useRouter } from 'vue-router';
 

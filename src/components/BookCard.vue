@@ -27,7 +27,7 @@
 </template>
   
 <script lang="ts">
-import type { Book } from '@src/interfaces/book';
+import type { Book } from '@interfaces/book';
 import { defineComponent, type PropType } from 'vue';
 
 export default defineComponent({
