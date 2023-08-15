@@ -41,3 +41,6 @@ npm run coverage
 
 ## Libs used
 Bootstrap-vue [here](https://bootstrap-vue-next.github.io/bootstrap-vue-next/docs.html)
+
+## To check books about unit testing in VUEJS
+Testing Vue.js Applications [here](https://www.oreilly.com/library/view/testing-vuejs-applications/9781617295249/)

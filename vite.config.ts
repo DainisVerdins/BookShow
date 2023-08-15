@@ -15,9 +15,8 @@ export default defineConfig({
     }
   },
   test: {
-    
     environment: 'happy-dom',
-    include: ['./tests/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+   include: ['./tests/**/*.{test,spec}.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
   },
   // TODO: this stuff must be putted in settings.json or something
   server: {

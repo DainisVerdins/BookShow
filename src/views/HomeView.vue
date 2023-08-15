@@ -8,7 +8,7 @@
         <b-input-group-prepend is-text>
           <img src="../assets/icons/loupe.svg" alt="loupe" height="19" width="19" />
         </b-input-group-prepend>
-        <b-form-input v-model="searchText" placeholder="Search for a book" />
+        <b-form-input data-test="blabla" v-model="searchText" type-text placeholder="Search for a book" />
       </b-input-group>
     </div>
     <div class="book-showcase" v-if="isLoaded">
@@ -59,6 +59,7 @@ const router = useRouter();
 
 // methods lives here
 const openBookDetails = (bookId: number): void => {
+  console.log('filteredBooks.value.length',filteredBooks.value.length);
   router.push({
     name: 'book-review',
     params: { id: bookId }
