@@ -1,65 +1,43 @@
 <template>
   <div v-if="isLoaded" class="book-view">
     <div class="navigation-bar">
-      <img
-        src="../assets/icons/arrow-to-left.svg"
-        alt="arrow to left"
-        @click="back"
-      />
-      <h2
-        class="navigation-text"
-        @click="back"
-      >
+      <img src="../assets/icons/arrow-to-left.svg" alt="arrow to left" @click="back" />
+      <h2 class="navigation-text" @click="back">
         Explore
       </h2>
     </div>
 
     <div class="row book-preview">
       <div class="col-12 col-lg-4 col-xl-4 pe-0">
-          <BookCard
-            :book="book"
-            show-book-publisher
-            read-only
-          />
-          <div class="d-flex flex-row bd-highlight mt-3">
-            <span class="review-raiting me-2">{{ bookRaiting }}</span>
-            <StarRaiting
-              :rating="book.rating"
-              read-only
-            />
-          </div>
+        <TheBookCard :book="book" show-book-publisher read-only />
+        <div class="d-flex flex-row bd-highlight mt-3">
+          <span class="review-rating me-2">{{ book.rating }}</span>
+          <TheStarRating :rating="book.rating" read-only />
+        </div>
       </div>
       <div class="col-12 col-lg-8 col-xl-8 book-description">
         <p class="mb-0">{{ book.description }}</p>
       </div>
     </div>
+
+    <!--Review submitting part-->
     
-    <!--Review submiting part-->
     <div class="review-section mb-3">
       <template v-if="showSubmitForm">
         <h1 class="review-title">Write a review</h1>
         <b-form>
-          <div class="star-raiting-choiser">
-            <h2 class="star-raiting-title">Rate the book</h2>
-            <StarRaiting v-model:rating="reviewRating" />
+          <div class="star-rating-chooser">
+            <h2 class="star-rating-title">Rate the book</h2>
+            <TheStarRating v-model:rating="reviewRating" />
           </div>
           <div class="row">
             <div class="col-12 col-lg-8 col-xl-5">
-              <b-form-textarea
-                v-model="reviewText"
-                placeholder="Enter review text..."
-                rows="3"
-                max-rows="6"
-                class="form-textarea "
-              />
+              <b-form-textarea v-model="reviewText" placeholder="Enter review text..." rows="3" max-rows="6"
+                class="form-textarea " />
             </div>
           </div>
-          <b-button
-            type="submit"
-            variant="primary"
-            class="mt-4 btn-submit-review col-12 col-lg-2 col-xl-2"
-            @click="submitReview"
-          >
+          <b-button type="submit" variant="primary" class="mt-4 btn-submit-review col-12 col-lg-2 col-xl-2"
+            @click="submitReview">
             Submit review
           </b-button>
         </b-form>
@@ -73,61 +51,57 @@
   </div>
 </template>
   
-<script lang="ts">
-import type { Book } from '@src/interfaces/book';
-import booksService from '@src/services/books-service';
-import { defineComponent } from 'vue';
-import BookCard from '@src/components/BookCard.vue';
-import StarRaiting from '@src/components/StarRaiting.vue';
-import bookReviewService from '@src/services/book-review-service';
-import type { BookReview } from '@src/interfaces/book-review';
+<script setup lang="ts">
+import type { Book } from '@/interfaces/book';
+import booksService from '@/services/books-service';
+import TheBookCard from '@/components/TheBookCard.vue';
+import TheStarRating from '@/components/TheStarRating.vue';
+import bookReviewService from '@/services/book-review-service';
+import type { BookReview } from '@/interfaces/book-review';
+import { onMounted, reactive, ref, type Ref } from 'vue';
+import { useRouter } from 'vue-router';
 
-export default defineComponent ({
-  components: { BookCard, StarRaiting },
-  props: {
-    id: {
-      required: true,
-      type: String,
-    },
-  },
-
-  async mounted(): Promise<void> {
-    this.book = await booksService.getBookById(parseInt(this.id));
-    this.bookRaiting = this.book.rating;
-    this.isLoaded = true;
-  },
-
-  data() {
-    return {
-      book: {} as Book,
-      isLoaded: false,
-      bookRaiting: 0,
-      reviewText: '',
-      reviewRating: 0,
-      showSubmitForm: true,
-    };
-  },
-
-  methods: {
-    async submitReview() {
-      try {
-        await bookReviewService.saveReview({
-          bookId: parseInt(this.id),
-          reviewText: this.reviewText,
-          bookRating: this.reviewRating,
-        } as BookReview);
-        this.showSubmitForm = false;
-        } catch (error: unknown) {
-            console.warn((error as Error).message); // TODO: add send notification to user
-            this.reviewRating = 0;
-            this.reviewText = '';
-        }
-    },
-    back(): void {
-      this.$router.push({ name: 'home'});
-    }
-  }
+const props = defineProps({
+  id: { type: String, required: true },
 });
+
+onMounted(async () => {
+  book = await booksService.getBookById(parseInt(props.id));
+  isLoaded.value = true;
+});
+
+let book: Book = reactive({} as Book);
+let isLoaded: Ref<boolean> = ref(false);
+
+let showSubmitForm: Ref<boolean> = ref(true);
+let reviewRating: Ref<number> = ref(0);
+let reviewText: Ref<String> = ref('');
+
+const router = useRouter();
+
+const back = (): void => {
+  router.push({ name: 'home' });
+}
+
+const submitReview = async (): Promise<void> => {
+  try {
+    console.log(book);
+    await bookReviewService.saveReview({
+      bookId: parseInt(props.id),
+      reviewText: reviewText.value,
+      bookRating: reviewRating.value,
+    } as BookReview);
+
+    showSubmitForm.value = false;
+
+  } catch (error: unknown) {
+    console.warn((error as Error).message); // TODO: add send notification to user
+    reviewRating.value = 0;
+    reviewText.value = '';
+  }
+}
+
+
 </script>
 <style lang="scss">
 @import '../styles/custom/variables';
@@ -147,6 +121,7 @@ export default defineComponent ({
       line-height: 24px;
       text-decoration-line: underline;
     }
+
     &:hover {
       background-color: yellow;
       cursor: pointer;
@@ -156,7 +131,8 @@ export default defineComponent ({
 
 .book-preview {
   margin-bottom: 40px;
-  .review-raiting {
+
+  .review-rating {
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -166,7 +142,6 @@ export default defineComponent ({
 
     margin-bottom: 0;
   }
-  
 
   .book-description {
     display: flex;
@@ -188,10 +163,12 @@ export default defineComponent ({
     border: 1px solid $ui-grey;
     background: #fff;
   }
-  .star-raiting {
-    &-choiser {
+
+  .star-rating {
+    &-chooser {
       margin-bottom: 24px;
     }
+
     &-title {
       color: $black-095;
       font-size: 18px;
@@ -209,6 +186,7 @@ export default defineComponent ({
     font-family: Inter;
     font-weight: 700;
   }
+
   .btn-submit-review {
     border-radius: 24px;
     border: 2px solid #3980B2;
